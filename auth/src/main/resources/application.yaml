@@ -1,0 +1,32 @@
+spring:
+  main:
+    banner-mode: off
+  application:
+    name: auth
+
+  redis:
+    host: localhost
+    port: 6379
+
+logging:
+  level:
+    com:
+      chassot: DEBUG
+
+keycloak:
+  base-path: http://localhost:8180/auth
+  authentication:
+    path: /realms/master/protocol/openid-connect/token
+    username: admin
+    password: admin
+    grant-type: password
+    client-id: admin-cli
+  account:
+    realm: chassotbank
+    path: /admin/realms/{realm}/users
+  user:
+    realm: chassotbank
+    path: /realms/{realm}/protocol/openid-connect/token
+    grant-type: password
+    client-id: user-login
+    client-secret: 2b8c6350-ba7b-48e0-a086-d30bf19dbad7
